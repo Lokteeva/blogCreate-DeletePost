@@ -1,0 +1,18 @@
+body {
+  padding: 0;
+  margin: 0;
+  
+}
+
+.nav, .nav a {
+margin: 0;
+height: 80px;
+background-color: #000;
+display: flex;
+justify-content: center;
+align-items: center;
+color: #fff;
+column-gap: 40px;
+text-decoration: none;
+font-size: 18px;
+}
