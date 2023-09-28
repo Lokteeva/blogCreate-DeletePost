@@ -8,13 +8,16 @@ function CreatePost({isAuth}) {
   //для того, чтобы инпуты отслеживали ввод
   const [title, setTitle] = useState("")
   const [postText, setPostText] = useState("")
+  const [datePost, setDatePost] = useState("")
+  const [nameD, setNameD] = useState("")
+
 
   let navigate = useNavigate()
   //для отправки сообщений в firebase
   const  postCollectionRef = collection(db, "posts")
   const createPost = async() =>{
     await addDoc(postCollectionRef, {
-      title, postText, author:{name: auth.currentUser.displayName, id:auth.currentUser.uid},
+      nameD, datePost, title, postText, author:{name: auth.currentUser.displayName, id:auth.currentUser.uid}, 
     });
     navigate("/");
   }
@@ -27,24 +30,38 @@ function CreatePost({isAuth}) {
     }
   },[]);
 
-  return (
+   return (
     <div className='createPostPage'>
      <div className='cpContainer'>
      <h1>create post</h1>
      <div className='inputGp'>
-      <label>Title:</label>
-      <input placeholder='Title' onChange={(event)=>{
+      <label>Духовное имя:</label>
+      <input placeholder='Духовное имя...' onChange={(event)=>{
+        setNameD(event.target.value);
+      }}/>
+     </div>
+     <div className='inputGp'>
+      <label>Дата:</label>
+      <input placeholder='Дата...' onChange={(event)=>{
+        setDatePost(event.target.value);
+      }}/>
+     </div>
+     <div className='inputGp'>
+      <label>Заголовок:</label>
+      <input placeholder='Заголовок' onChange={(event)=>{
         setTitle(event.target.value);
       }}/>
      </div>
      <div className='inputGp'>
-      <label>Post:</label>
-      <textarea placeholder="Post" onChange={(event)=>{
+      <label>Ответ:</label>
+      <textarea placeholder="Ответ..." onChange={(event)=>{
         setPostText(event.target.value);
       }}/>
      </div>
      <button onClick={createPost}>Submit Post</button>
      </div>
+
+     
 
     </div>
   )
@@ -52,4 +69,4 @@ function CreatePost({isAuth}) {
 
 export default CreatePost
 
-//35-00 
+

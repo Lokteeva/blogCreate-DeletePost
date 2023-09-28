@@ -21,23 +21,31 @@ function Home({ isAuth}) {
     const postDoc = doc(db, "posts", id);
     await deleteDoc(postDoc)
   }
+  console.log()
+
+  
   return (
     <div className="homePage">
-      <h1>home</h1>
+      <h1>Отчет для наставника</h1>
+    
       <div>
         {postList.map((post) => {
           return (
             <div className="post">
               <div className="postHeader">
+              <h6>@{post.author.name}:</h6>
+              <h3>{post.nameD}</h3>
+              <h5>Дата: {post.datePost}</h5>
                 <div className="title">
-                  <h1>{post.title}</h1>
-                </div>
-                <div className='deletePost'>
-                  {isAuth && post.author.id === auth.currentUser.uid &&<button onClick={()=>{deletePost(post.id)}}>удалить</button>}
-                </div>
+                  <h2>{post.title}</h2>
+                </div>               
               </div>
               <div className="postTextContainer">{post.postText}</div>
-              <h3>@{post.author.name}</h3>
+
+              <div className='deletePost'>
+                  {isAuth && post.author.id === auth.currentUser.uid &&<button onClick={()=>{deletePost(post.id)}}>удалить</button>}
+                </div>
+              
             </div>
           );
         })}
