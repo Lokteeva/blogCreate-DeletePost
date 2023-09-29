@@ -1,0 +1,18 @@
+if request.auth.uid !=null;
+
+15 tutorial как добавить биографию пользователю. При регистрации имя пользователя например!!!!
+
+16
+
+https://www.youtube.com/watch?v=B2E30lXp5EI&list=PL4cUxeGkcC9jUPIes_B8vRjn1_GaplOPQ&index=16
+
+npm i firebase-tools
+
+ firebase deploy --only functions
+
+
+ if  ({post.author.id} === "конкретный uid") {
+    то ему видно админ панель
+ }
+
+ database == auth

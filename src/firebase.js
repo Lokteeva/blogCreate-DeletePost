@@ -18,5 +18,4 @@ export const db = getFirestore(app)
 //авторизация
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
-
-
+export const database = getAuth(app);

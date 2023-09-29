@@ -21,6 +21,9 @@ function CreatePost({isAuth}) {
     });
     navigate("/");
   }
+// хочу вытащить uid пользователя
+
+  console.log()
 
   //для аутинтификации пользователя
   useEffect(() =>{
