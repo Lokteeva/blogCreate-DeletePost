@@ -3,6 +3,7 @@ import { useState, useEffect } from 'react';
 import { getDocs, collection, deleteDoc, doc } from 'firebase/firestore';
 import { auth, db } from '../firebase';
 
+
 function Home({ isAuth}) {
   const [postList, setPostList] = useState([]);
   const postCollectionRef = collection(db, 'posts');
@@ -27,13 +28,14 @@ function Home({ isAuth}) {
   return (
     <div className="homePage">
       <h1>Отчет для наставника</h1>
+      
       <div>
         {postList.map((post) => {
           return (
-            <div className="post">
+            <div className="post" key={post.id}>
               <div className="postHeader">
               <h3>{post.nameD}</h3>
-              <h5>Дата: {post.datePost}</h5>
+              <h5 >Дата: {post.datePost}</h5>
                 <div className="title">
                   <h2>{post.title}</h2>
                 </div>               
@@ -41,7 +43,7 @@ function Home({ isAuth}) {
               <div className="postTextContainer">{post.postText}</div>
 
               <div className='deletePost'>
-                  {isAuth && post.author.id === auth.currentUser.uid &&<button onClick={()=>{deletePost(post.id)}}>удалить</button>}
+                  {isAuth && post.author.id === auth.currentUser.uid &&<button onClick={()=>{deletePost(post.id)}} >удалить</button>}
                 </div>
               
             </div>
