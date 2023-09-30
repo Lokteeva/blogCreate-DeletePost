@@ -45,10 +45,10 @@ function App() {
             <button onClick={signUserOut}>Выйти</button>
           </>
         )}
-        {user && user.uid === 'zgG8W2QfMebOkLdBvXh49VG1TzB2' ? (
+        {user && user.uid === `${process.env.REACT_APP_ADMIN}` ? (
           <Link to="/admin">Admin </Link>
         ) : (
-          <h1></h1>
+          ''
         )}
       </nav>
       <Routes>
@@ -56,22 +56,11 @@ function App() {
         <Route path="/login" element={<Login setIsAuth={setIsAuth} />} />
         <Route path="/loginemail" element={<LoginEmail setIsAuth={setIsAuth} />} />
         <Route path="/createpost" element={<CreatePost isAuth={isAuth} />} />
-        {/* <Route path="/admin" element={<AdminPage />} /> */}
-
-        {/* <Route exact path="/"> 
-          {user && user.uid === 'zgG8W2QfMebOkLdBvXh49VG1' ? <AdminPage /> : <Home />}
-        </Route> */}
-        {/* admin */}
-
-        {user && user.uid === 'zgG8W2QfMebOkLdBvXh49VG1TzB2' ? (
-          <Route path="/admin" element={<AdminPage />} />
+        {user && user.uid === `${ process.env.REACT_APP_ADMIN}` ? (
+          <Route path="/admin" element={<AdminPage setIsAuth={setIsAuth} />} />
         ) : (
           <Route path="/" element={<Home isAuth={isAuth} />} />
         )}
-
-        {/* <Route path="/admin">
-          {user && user.uid === 'zgG8W2QfMebOkLdBvXh49VG1TzB2' ? path="/admin" : path="/"}
-        </Route> */}
       </Routes>
     </Router>
   );

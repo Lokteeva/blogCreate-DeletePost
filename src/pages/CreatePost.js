@@ -22,12 +22,10 @@ function CreatePost({isAuth}) {
     navigate("/");
   }
 
-
   //для аутинтификации пользователя
   useEffect(() =>{
     if (!isAuth) {
     navigate("/login");
-
     }
   });
 

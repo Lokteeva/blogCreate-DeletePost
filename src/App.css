@@ -1,18 +1,47 @@
 body {
   padding: 0;
   margin: 0;
-  
 }
 
-.nav, .nav a {
-margin: 0;
-height: 80px;
-background-color: #000;
-display: flex;
-justify-content: center;
-align-items: center;
-color: #fff;
-column-gap: 40px;
-text-decoration: none;
-font-size: 18px;
+.nav,
+.nav a {
+  margin: 0;
+  height: 80px;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  column-gap: 40px;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.pointer {
+  padding-top: 5px;
+  height: 30px;
+  width: 15%;
+  border: 2px solid black;
+  cursor: pointer;
+  text-align: center;
+  border-radius: 7px;
+  font-weight: 700;
+}
+.activColor {
+  padding-top: 5px;
+  height: 30px;
+  width: 15%;
+  border: 2px solid rgb(246, 10, 10);
+  cursor: pointer;
+  text-align: center;
+  background-color: rgba(246, 10, 10, 0.3);
+  border-radius: 7px;
+  font-weight: 700;
+
+}
+.row {
+  display: flex;
+  justify-content: center;
+  padding-top: 40px;
+  column-gap: 30px;
 }
